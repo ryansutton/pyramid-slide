@@ -9,6 +9,7 @@
 
         body {
             font-family: "Courier New", monospace;
+            font-family: monospace;
             text-align: center;
         }
 
@@ -22,7 +23,7 @@
     <form id="draw-form">
         <label>
             Brick Symbol:
-            <select name="brick_symbols" form="draw-form">
+            <select name="brick_symbols" id="brick" onchange="drawPyramid();">
                 <option value="#">#</option>
                 <option value="@">@</option>
                 <option value="$">$</option>
@@ -31,7 +32,8 @@
         </label>
         <label>
             How high?
-            <input id="height" type="range" min="1" max="20"/>
+            <input id="height"  name="height" oninput="drawPyramid();" type="range" min="1" max="20" step="1">
+            <output for="height" onforminput="value = height.valueAsNumber;"></output>
         </label>
         <br><br>
     </form>
@@ -40,6 +42,6 @@
 
     <div id="pyramid"></div>
 
-    <script src="pyramide-slide.js"></script>
+    <script src="pyramid-slide.js"></script>
 </body>
 </html>
