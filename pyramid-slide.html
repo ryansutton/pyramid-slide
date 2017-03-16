@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link type="text/css" rel="stylesheet" href="pyramid-slide.css"/>
     <style>
         #pyramid {
             line-height: 0;
@@ -14,34 +15,33 @@
         }
 
 
+
     </style>
 </head>
 <body>
     <h1>Pyramid Slide</h1>
 
+    <div id="square">
+        <form id="draw-form" onsubmit="return false" oninput="heightNumber.value = height.valueAsNumber">
+            <label>
+                Brick Symbol:
+                <select name="brick_symbols" id="brick" onchange="drawPyramid();">
+                    <option value="#">#</option>
+                    <option value="@">@</option>
+                    <option value="$">$</option>
+                    <option value="X">X</option>
+                </select>
+            </label>
+            <label for="heightSlider">
+                How high?
+                <input id="height"  name="height" oninput="drawPyramid();" type="range" min="1" max="20" step="1">
+                <output for="heightSlider" name="heightNumber">10</output>
+            </label>
+        </form>
 
-    <form id="draw-form">
-        <label>
-            Brick Symbol:
-            <select name="brick_symbols" id="brick" onchange="drawPyramid();">
-                <option value="#">#</option>
-                <option value="@">@</option>
-                <option value="$">$</option>
-                <option value="X">X</option>
-            </select>
-        </label>
-        <label>
-            How high?
-            <input id="height"  name="height" oninput="drawPyramid();" type="range" min="1" max="20" step="1">
-            <output for="height" onforminput="value = height.valueAsNumber;"></output>
-        </label>
-        <br><br>
-    </form>
 
-    <br><br>
-
-    <div id="pyramid"></div>
-
+        <div id="pyramid"></div>
     <script src="pyramid-slide.js"></script>
+    </div>
 </body>
 </html>
